@@ -4,4 +4,4 @@ USER spring:spring
 COPY ./gcloudkey.json gcloudkey.json
 ENV GOOGLE_APPLICATION_CREDENTIALS gcloudkey.json
 COPY ./build/libs/BlogBackend-0.0.1.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=prod -jar","/app.jar"]

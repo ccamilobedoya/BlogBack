@@ -3,6 +3,9 @@
 ### Use of gcloud
 Put your Datastore auth key in the root dir so the Dockerfile can use it.
 
+### Swagger
+http://localhost:8080/api/swagger-ui.html
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
