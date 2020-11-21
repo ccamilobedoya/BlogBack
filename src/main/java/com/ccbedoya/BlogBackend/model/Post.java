@@ -2,6 +2,7 @@ package com.ccbedoya.BlogBackend.model;
 
 import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
 
 import java.sql.Timestamp;
 
@@ -14,12 +15,16 @@ public class Post {
     String imageUrl;
     String text;
     Timestamp createdDate;
+    Long likes;
+    @Reference
+    Author author;
 
     public Post(String title, String imageUrl, String text) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.text = text;
         this.createdDate = new Timestamp(System.currentTimeMillis());
+        this.likes = 0l;
     }
 
     public Long getId() {
@@ -60,5 +65,21 @@ public class Post {
 
     public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Long getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Long likes) {
+        this.likes = likes;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }
